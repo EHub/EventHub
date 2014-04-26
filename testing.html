@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.6/angular.min.js'></script>
+  <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+  <script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
+  <script src="baby.js"></script>
+  <title>Cool Title</title>
+
+  <!-- Bootstrap core CSS -->
+</head>
+
+<body>
+  <div ng-app="myapp" ng-controller="MainController">
+    <h1>{{message}}</h1>
+    <div ng-repeat="event in events">
+      <h3>{{event.title}}</h3>
+      <div>{{event.eid}}</div>
+      <p>{{event.description}}</p>
+      <h3>{{event.building}}</h3>
+      <h3>{{event.count}}</h3>
+    </div>
+
+    <input type="text" ng-model="title" ng-keydown="addEvent($event)" placeholder="Title"/>
+    <input type="text" ng-model="description" ng-keydown="addEvent($event)" placeholder="Description"/>
+    <input type="text" ng-model="building" ng-keydown="addEvent($event)" placeholder="Building"/>
+    <input type="text" ng-model="time" ng-keydown="addEvent($event)" placeholder="Time"/>
+    <ul>
+      <li ng-repeat="user in users">
+        {{user.name}}
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
