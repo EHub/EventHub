@@ -1,7 +1,55 @@
 var app = angular.module("myapp", ["firebase"]);
-function MyController($scope, $firebase) {
-	var ref = new Firebase("https://resplendent-fire-491.firebaseio.com/");
-	
+
+function MainController($scope, $firebase) {
+
+	var usersRef = new Firebase("https://resplendent-fire-491.firebaseio-demo.com/users");
+	var organizationsRef = new Firebase("https://resplendent-fire-491.firebaseio-demo.com/organizations");
+	var eventsRef = new Firebase("https://resplendent-fire-491.firebaseio-demo.com/event");
+	var interestsRef = new Firebase("https://resplendent-fire-491.firebaseio-demo.com/interests");
+	$scope.users = $firebase(usersRef);
+	$scope.orgs = $firebase(organizationsRef);
+	$scope.events = $firebase(eventsRef);
+	$scope.interests = $firebase(interestsRef);
+
+	$scope.addEvent = function(e) {
+
+	  	$scope.title = "Title";
+	  	$scope.description = "garbage";
+	  	$scope.building = "CSE";
+	  	$scope.time = (new Date()).getTime();
+
+	  	var oid = $scope.addOrganization();
+
+	  	var eventObject = {
+	  		title: $scope.title,
+	  		description: $scope.description,
+	  		building: $scope.building,
+	  		time: $scope.time
+	  	};
+
+	  	eventObject.eid = $firebase.push().name();
+	  	$scope.events.$add(eventObject);
+	  	return eventObject.eid;
+	};
+
+	$scope.editEvent = function(e) {
+		//TODO
+	};
+
+	$scope.addSubscription = function(e) {
+		//TODO
+	};
+
+	$scope.removeSubscription = function(e) {
+		//TODO
+	};
+
+	//Returns new org's id
+	$scope.addOrganization = function(e) {
+		//TODO
+	}
+}
+
 	$scope.user = {
 		uid : "1243423l4kj23l4kj23lk4j23lkjsldjf",
 		events : [0, 1],
@@ -44,5 +92,5 @@ function MyController($scope, $firebase) {
 			interests : [1, 2],
 			going: 5
 		}]
-	}
+	};
 }
