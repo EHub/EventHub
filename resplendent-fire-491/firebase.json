@@ -1,0 +1,5 @@
+{
+  "firebase": "resplendent-fire-491",
+  "public": "app",
+  "rules": "config/security-rules.json"
+}
