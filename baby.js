@@ -44,9 +44,9 @@ myapp.controller('MainController', function MainController($scope, $firebase) {
       console.log(eid);
       //close form
       //toastr.success...
+      $scope.rsvp(eid);
 		});
 
-    $scope.rsvp(eid);
 
     return eid;
 	};
@@ -73,7 +73,6 @@ myapp.controller('MainController', function MainController($scope, $firebase) {
     };
 
     $scope.events.$remove(eid);
-
     $scope.events.$add(eventObject).then(function(param) {
       alert("Changed event! Success!");
       //toastr.success...
@@ -102,7 +101,9 @@ myapp.controller('MainController', function MainController($scope, $firebase) {
 	};
 
 	$scope.rsvp = function(eid) {
+    console.log("Called rsvp: " + eid);
 		var child = $scope.events.$child(eid);
+    console.log(child);
     child.$update({count: child.count+1});
 	};
 
