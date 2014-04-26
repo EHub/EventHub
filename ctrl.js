@@ -11,6 +11,11 @@ function MainController($scope, $firebase) {
 	$scope.events = $firebase(eventsRef);
 	$scope.interests = $firebase(interestsRef);
 
+	var auth = new FirebaseSimpleLogin(userRef, function(error, user) {
+  	//
+	});
+	auth.login("facebook");
+
 	$scope.addEvent = function(e) {
 
 	  	$scope.title = "Title";
@@ -33,11 +38,18 @@ function MainController($scope, $firebase) {
 	};
 
 	$scope.editEvent = function(e) {
-		//TODO
+		var eventObject = {
+  		title: $scope.title,
+  		description: $scope.description,
+  		building: $scope.building,
+  		time: $scope.time
+  	};
+  	$scope.events.$add(eventObject);
+  	return eventObject.eid;
 	};
 
 	$scope.addSubscription = function(e) {
-		//TODO
+		$scope.users
 	};
 
 	$scope.removeSubscription = function(e) {
@@ -47,7 +59,23 @@ function MainController($scope, $firebase) {
 	//Returns new org's id
 	$scope.addOrganization = function(e) {
 		//TODO
-	}
+	};
+
+	$scope.addInterest = function(e) {
+		//TODO
+	};
+
+	$scope.removeInterest = function(e) {
+		//TODO
+	};
+
+	$scope.rsvp = function(e) {
+		//TODO
+	};
+
+	$scope.unrsvp = function(e) {
+		//TODO
+	};
 }
 
 	$scope.user = {
