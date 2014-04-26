@@ -24,38 +24,47 @@
 </head>
 <body>
 
-				<div class="modal-header">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.6/angular.min.js'></script>
+  <script src="baby.js"></script>
+
+				<div class="modal-header" ng-app="myapp" ng-controller="MainController">
                     <h4>Create an Event</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="name" class="col-lg-2 control-label">Event:</label>
+                        <label for="name" class="col-lg-2 control-label">Name:</label>
                         <div class="col-lg-10">
-                            <input class="form-control" placeholder="Your Event's Name" name="name" id="name" type="text">
+                            <input class="form-control" placeholder="Your Event's Name" name="name" id="name" type="text" ng-model="title">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="date" class="col-lg-2 control-label">Date:</label>
                         <div class="col-lg-10">
-                            <input class="form-control" placeholder="Date of Event" name="date" id="date" type="text">
+                            <input class="form-control" placeholder="Date of Event" name="date" id="date" type="text" ng-model="date">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="time" class="col-lg-2 control-label">Time:</label>
                         <div class="col-lg-10">
-                            <input class="form-control" placeholder="What time does the party start?" name="time" id="time" type="text">
+                            <input class="form-control" placeholder="What time does the party start?" name="time" id="time" type="text" ng-model="time">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="location" class="col-lg-2 control-label">Location:</label>
+                        <label for="location" class="col-lg-2 control-label">Building:</label>
                         <div class="col-lg-10">
-                            <input class="form-control" placeholder="Where's the part at?" name="loc" id="loc" type="text">
+                            <input class="form-control" placeholder="Where's the part at?" name="loc" id="loc" type="text" ng-model="building">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="col-lg-2 control-label">Description:</label>
+                        <label for="description" class="col-lg-2 control-label">Description:</label>
                         <div class="col-lg-10">
-                            <textarea class="form-control" name="des" id="des" placeholder="What's your event?"></textarea>
+                            <textarea class="form-control" name="des" id="des" placeholder="What's your event?" ng-model="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="url" class="col-lg-2 control-label">Background Image:</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" placeholder="Paste a link to an image" name="loc" id="url" type="text" ng-model="url">
                         </div>
                     </div>
                     <div class="row">
@@ -71,32 +80,6 @@
                                 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
                                 <!-- Include all compiled plugins (below), or include individual files as needed -->
                                 <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
-                                <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-                                <script>    
-
-                                  function init_map() {
-                                    var var_location = new google.maps.LatLng(47.6567, -122.3210);
-
-                                    var var_mapoptions = {
-                                      center: var_location,
-                                      zoom: 14
-                                  };
-
-                                  var var_marker = new google.maps.Marker({
-                                    position: var_location,
-                                    map: var_map,
-                                    title:"Venice"});
-
-                                  var var_map = new google.maps.Map(document.getElementById("map-container"),
-                                    var_mapoptions);
-
-                                  var_marker.setMap(var_map);    
-
-                              }
-
-                              google.maps.event.addDomListener(window, 'load', init_map);
-
-                          </script></div></div>
 
                           <div class="col-lg-2">
                             <form action="">
@@ -115,7 +98,8 @@
                     
                 </div>
                 <div class="modal-footer">
-                    <a href="#" class="btn btn-default" data-dismiss="modal">Close</a><a href="#" class="btn btn-info">Create Event</a>
+                  <a href="#" id="closeModal" class="btn btn-default" data-dismiss="modal">Close</a>
+                  <a ng-click="createEvent($event)" href="#" class="btn btn-info" data-dismiss="modal">Create Event</a>
                 </div>
 
 </body>

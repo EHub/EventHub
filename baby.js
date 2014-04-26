@@ -1,85 +1,102 @@
-var myapp = angular.module('myapp', ["firebase"]);
-myapp.controller('MainController', function MainController($scope, $firebase) {
-	var ref = new Firebase("https://resplendent-fire-491.firebaseio-demo.com/events");
-  $scope.events = $firebase(ref);
-  $scope.users = $scope.events;
-	$scope.message = "Hello, World";
+var myapp = angular.module('myapp', []);
 
-	$scope.addUser = function(e) {
-		if(e.keyCode != 13 || !$scope.name) {
-			return;
-		}
+ function randomString() {
+  var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var length = chars.length;
+  var result = '';
+  for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;
+  }
 
-		$scope.users.$add({name: $scope.name}).then(function(ignore) {
-			$scope.name = "";
-		});
-	};
-  
-  $scope.addEvent = function(e) {
-	  	//var oid = $scope.addOrganization();
+  var Event = function(title, description, building, time, interests, rsvps, img_url, date) {
+    this.eid = randomString();
+    this.title = title;
+    this.description = description;
+    this.building = building;
+    this.time = time;
+    this.interests = interests;
+    this.rsvps = rsvps;
+    this.img_url = img_url;
+    this.date = date;
+  }
 
-    if(e.keyCode != 13) {
-      return;
-    } else if(!$scope.title || !$scope.description || !$scope.building || !$scope.time) {
-      //toastr.failure...
-      return;
+  var EventManager = function() {
+    this.events = {};
+
+    this.addEvent = function(id, ev) {
+      this.events[id] = ev;
+
+      var father = document.createElement("div");
+      father.classList.add("col-md-4");
+      father.id = id;
+      var two = document.createElement("div");
+      two.classList.add("thumbnail");
+      var three = document.createElement("img");
+      three.src = ev.img_url;
+      var four = document.createElement("div");
+      four.classList.add("caption");
+      var five = document.createElement("h3");
+      five.textContent = ev.title;
+      var font = document.createElement("font");
+      font.size = 2;
+      var p1 = document.createElement("p");
+      p1.innerHTML = "Date: <span> " + ev.date.toDateString() + " </span><br />" +
+                    "Time: <span> " + ev.time + " </span><br />" +
+                    "Where: <span> " + ev.building + " </span>";
+      var p2 = document.createElement("p");
+      p2.innerHTML = "<a href=\"#\" class=\"btn btn-primary\" role=\"button\">Going</a>" +
+                      "<a href=\"#\" class=\"btn btn-default\" role=\"button\">More...</a>";
+      
+      font.appendChild(p1);
+      font.appendChild(p2);
+      four.appendChild(five);
+      four.appendChild(font);
+      two.appendChild(three);
+      two.appendChild(four);
+      father.appendChild(two);
+
+      document.querySelector(".col-md-10").appendChild(father);
     }
+  }
 
-    var eventObject = {
-      oid: "2lk3jrl23jrlsldfj",
-      title: $scope.title,
-      description: $scope.description,
-      building: $scope.building,
-      date: "Date",
-      time: "Time",
-      interests: [],
-      count: 0
-    };
+var em = new EventManager();
 
-    var eid;
-		$scope.events.$add(eventObject).then(function(param) {
-			eid = param.name();
-      var child = $scope.events.$child(eid);
-      child.$update({eid: eid});
-      console.log(eid);
-      //close form
-      //toastr.success...
-      $scope.rsvp(eid);
-		});
+myapp.controller('MainController', function MainController($scope) {
+  $scope.user = {
+    uid: randomString(),
+    name: "EventHub",
+    interests: [],
+    events: [],
+    subscriptions: []
+  }
 
-
-    return eid;
-	};
-
-	$scope.editEvent = function(e, eid) {
-    if(e.keyCode != 13) {
-      return;
-    } else if(!$scope.title || !$scope.description || !$scope.building || !$scope.time) {
-      //toastr.failure...
-      return;
+  var eid = randomString();
+  $scope.events = {
+    "2l3jlklsdfls" : {
+      uid: "sjflksdjf",
+      title: "Blah",
+      description: "lskdjflksdjfls"
     }
-
-    var old = $scope.events.$child(eid);
-    
-    var eventObject = {
-      oid: old.oid,
-      eid: eid,
-      title: $scope.title,
-      description: $scope.description,
-      building: $scope.building,
-      time: $scope.time, 
-      interests: [],
-      count: old.count
-    };
-
-    $scope.events.$remove(eid);
-    $scope.events.$add(eventObject).then(function(param) {
-      alert("Changed event! Success!");
-      //toastr.success...
-    });
   };
 
-	$scope.addSubscription = function(e) {
+  $scope.createEvent = function() {
+    if(!$scope.title || !$scope.url || !$scope.date || !$scope.description || !$scope.building || !$scope.time) {
+      //toastr.failure...
+      console.log("Params empty?");
+      return;
+    }
+
+    var newEvent = new Event($scope.title, $scope.description, $scope.building, $scope.time, [], 1, $scope.url, new Date($scope.date));
+    console.log(em);
+    em.addEvent(randomString(), newEvent);
+    $scope.title = $scope.url = $scope.date = $scope.description = $scope.building = $scope.time = "";
+	};
+
+  $scope.removeEvent = function(eid) {
+    $scope.events[eid] = null;
+  };
+
+	$scope.addSubscription = function(subId) {
 		//TODO
 	};
 
@@ -101,14 +118,29 @@ myapp.controller('MainController', function MainController($scope, $firebase) {
 	};
 
 	$scope.rsvp = function(eid) {
-    console.log("Called rsvp: " + eid);
-		var child = $scope.events.$child(eid);
-    console.log(child);
-    child.$update({count: child.count+1});
-	};
+	
+  };
 
 	$scope.unrsvp = function(eid) {
-		var child = $scope.events.$child(eid);
-    $scope.events.$child(eid).$set({count: child.count - 1});
-	};
+	
+  };
+});
+
+myapp.filter("searchFor", function() {
+return function(arr, searchString) {
+  if(!searchString) {
+    return arr;
+  }
+
+  var result = [];
+  searchString = searchString.toLowerCase();
+  console.log(arr);
+  angular.forEach(arr, function(item) {
+    //DO INTERESTS
+    if(item.title.toLowerCase().indexOf(searchString) == 0) {
+      result.push(item);   
+    }
+  });
+  return result;
+}
 });
