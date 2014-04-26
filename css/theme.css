@@ -12,3 +12,41 @@ body {
 .theme-showcase > p > .btn {
   margin: 5px 0;
 }
+
+.page-header {
+	margin: 20px 0px 20px 0px;
+}
+
+h1 {
+	margin-top: 10px;
+}
+
+#wrap > .container {
+  padding: 60px 15px 0;
+}
+.container .credit {
+  margin: 20px 0;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+  .container {
+    width: 1370px;
+  }
+
+.closebtn {
+  margin-top: -5px;
+  }
+  
+  .lessspace {
+    	margin-top: 5px;
+        margin-bottom: 5px;
+    }
+  

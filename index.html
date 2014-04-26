@@ -1,231 +1,296 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.6/angular.min.js'></script>
-    <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
-    <script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
-  
-    <title>Theme Template for Bootstrap</title>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.6/angular.min.js'></script>
+<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+<script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="css/bootstrap-theme.css" rel="stylesheet">
+<title>Theme Template for Bootstrap</title>
 
-    <!-- Custom styles for this template -->
-    <link href="css/theme.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="css/bootstrap-theme.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!-- Custom styles for this template -->
+<link href="css/theme.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  <style type="text/css" id="holderjs-style"></style></head>
+      <![endif]-->
+      <style type="text/css" id="holderjs-style"></style></head>
 
- <style>
-    .picture {
-      background-image=url("Wedding-couple.jpg");
-      height: 100px;
-      width: 200px;
-      overflow:hidden;
-    }
-  </style>
-  <body role="document">
+      <style>
+        .picture {
+          background-image=url("Wedding-couple.jpg");
+          height: 100px;
+          width: 200px;
+          overflow:hidden;
+        }
+      </style>
+      <body role="document">
 
 
-    <!-- ================================================== -->
-    <!-- ================================================== -->
-    <!-- ================================================== -->
-<!-- Wrap all page content here -->
-<div id="wrap">
-  
-  <!-- Fixed navbar -->
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Event Hub</a>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <!-- <li class="active"><a href="#">Home</a></li> -->
-          <li><input type="text" class="form-control input-lg" placeholder="Free Lunch..."></li>
-          <li><button class="btn btn-lg">Search</button></li>
-          
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
-  
-  <!-- Begin page content -->
-  <div class="container">
-    
-      <div class="row">
-        <div class="col-lg-10">
-          <div class="page-header">
-              <h1><center>April 25th</center></h1>
-        </div>
-        <div class="row">
-              <div class="col-lg-4">  <!-- START: 1 thumbnail -->    
-    <div class="thumbnail">
-      
-      <!--this is the div for the event picture!!!!! -->
-      <div class="picture">
-      <img src="Wedding-couple.jpg" alt="..." height="200" width="300">
-      </div>
-      <!-- this is the body of the event -->
-      <div class="caption">
-        <h3>Atul's Wedding</h3>
-        <p> 
-          <font size = "2">Date: <span> 4/25/13 </span>
-          <br>
-          Time: <span> 5pm - 2am </span>
-          <br>
-          Where: <span> Mary Gates Hall </span>
-        </p>
-        <p>Atul is getting married, its going to be COOL!</p>
-        </font>
-        <!-- Buttons are here for event -->
-        <p>
+        <!-- ================================================== -->
+        <!-- ================================================== -->
+        <!-- ================================================== -->
 
-          <a href="#" class="btn btn-primary" role="button">Going</a> 
-          <a href="#" class="btn btn-default" role="button">More...</a>
+        <!-- Wrap all page content here -->
+        <div id="wrap">
 
-        </p>
-      </div>
-    </div>
-      <!-- END: 1 thumbnail -->  </div>
-              <div class="col-lg-4">  <!-- START: 1 thumbnail -->    
-    <div class="thumbnail">
-      
-      <!--this is the div for the event picture!!!!! -->
-      <div class="picture">
-      <img src="Wedding-couple.jpg" alt="..." height="200" width="300">
-      </div>
-      <!-- this is the body of the event -->
-      <div class="caption">
-        <h3>Atul's Wedding</h3>
-        <p> 
-          <font size = "2">Date: <span> 4/25/13 </span>
-          <br>
-          Time: <span> 5pm - 2am </span>
-          <br>
-          Where: <span> Mary Gates Hall </span>
-        </p>
-        <p>Atul is getting married, its going to be COOL!</p>
-        </font>
-        <!-- Buttons are here for event -->
-        <p>
+          <!-- Fixed navbar -->
+          <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Event Hub</a>
+              </div>
+              <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                  <!-- <li class="active"><a href="#">Home</a></li> -->
+                  <li><input type="text" class="form-control input-lg" placeholder="Free Lunch..." size="75"></li>
+                  <li><button class="btn btn-lg">Search</button></li>
 
-          <a href="#" class="btn btn-primary" role="button">Going</a> 
-          <a href="#" class="btn btn-default" role="button">More...</a>
-
-        </p>
-      </div>
-    </div>
-      <!-- END: 1 thumbnail -->  </div>
-              <div class="col-lg-4">  <!-- START: 1 thumbnail -->    
-    <div class="thumbnail">
-      
-      <!--this is the div for the event picture!!!!! -->
-      <div class="picture">
-      <img src="Wedding-couple.jpg" alt="..." height="200" width="300">
-      </div>
-      <!-- this is the body of the event -->
-      <div class="caption">
-        <h3>Atul's Wedding</h3>
-        <p> 
-          <font size = "2">Date: <span> 4/25/13 </span>
-          <br>
-          Time: <span> 5pm - 2am </span>
-          <br>
-          Where: <span> Mary Gates Hall </span>
-        </p>
-        <p>Atul is getting married, its going to be COOL!</p>
-        </font>
-        <!-- Buttons are here for event -->
-        <p>
-
-          <a href="#" class="btn btn-primary" role="button">Going</a> 
-          <a href="#" class="btn btn-default" role="button">More...</a>
-
-        </p>
-      </div>
-    </div>
-      <!-- END: 1 thumbnail -->  </div>
-              
+                </ul>
+              </div><!--/.nav-collapse -->
             </div>
-        </div>
-        <div class="col-lg-2">
-        <!-- right side bar -->
-<ul class="nav nav-pills nav-stacked">
-  <li class="active"><a href="#">Settings</a></li>
-  <li><a href="#">Manage Event</a></li>
-  
-  <li><h3>Interests:</h3></li>
-   <li>   <div class="input-group">
-      <span class="input-group-addon">
-        <input type="checkbox">
-      </span>
-      <input type="text" value="Hiking" disabled="disabled" class="form-control">
-     </div><!-- /input-group --></li>
+          </div>
 
-  
-     <li>   <div class="input-group">
-      <span class="input-group-addon">
-        <input type="checkbox">
-      </span>
-      <input type="text" value="Swiming" disabled="disabled" class="form-control">
-     </div><!-- /input-group --></li>
-  
+          <!-- Begin page content -->
+          <div class="container">
 
-  
-     <li>   <div class="input-group">
-      <span class="input-group-addon">
-        <input type="checkbox">
-      </span>
-      <input type="text" value="Gaming" disabled="disabled" class="form-control">
-     </div><!-- /input-group --></li>
-  
-  <li><h3>Subscriptions:</h3></li>
-  
-  
-  
-  <li><ul class="list-unstyled" id="sub">
-    <li><button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button></li>
-    <br>
-    <li><button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button></li>
-    <br>
-    <li><button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button></li>
-    <br>
-    </ul></li>
-</ul>
+            <div class="row">
+              <div class="col-lg-10">
+                <div class="page-header">
+                  <h1><center>April 25th</center></h1>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4">  
+                    <!-- START: 1 thumbnail -->    
+                    <div class="thumbnail">
 
-        </div>
-      </div>
-    
-      </div>
-</div>
+                      <!--this is the div for the event picture!!!!! -->
+                      <div class="picture">
+                        <img src="Wedding-couple.jpg" alt="..." height="200" width="300">
+                      </div>
+                      <!-- this is the body of the event -->
+                      <div class="caption">
+                        <h3>Atul's Wedding</h3>
+                        <font size = "2">
+                          <p> 
+                            Date: <span> 4/25/13 </span>
+                            <br>
+                            Time: <span> 5pm - 2am </span>
+                            <br>
+                            Where: <span> Mary Gates Hall </span>
+                          </p>
+                          <p>Atul is getting married, its going to be COOL!</p>
+                        </font>
+                        <!-- Buttons are here for event -->
+                        <p>
 
-<div id="footer">
-  <div class="container">
-    <p class="text-muted credit">Event Hub</p>
-  </div>
-</div>
+                          <a href="#" class="btn btn-primary" role="button">Going</a> 
+                          <a href="#" class="btn btn-default" role="button">More...</a>
+
+                        </p>
+                      </div>
+                    </div>
+                    <!-- END: 1 thumbnail -->  
+                    </div>
+                    <div class="col-lg-4">  <!-- START: 1 thumbnail -->    
+                      <div class="thumbnail">
+
+                        <!--this is the div for the event picture!!!!! -->
+                        <div class="picture">
+                          <img src="Wedding-couple.jpg" alt="..." height="200" width="300">
+                        </div>
+                        <!-- this is the body of the event -->
+                        <div class="caption">
+                          <h3>Atul's Wedding</h3>
+                          <font size = "2">
+                            <p> 
+                              Date: <span> 4/25/13 </span>
+                              <br>
+                              Time: <span> 5pm - 2am </span>
+                              <br>
+                              Where: <span> Mary Gates Hall </span>
+                            </p>
+                            <p>Atul is getting married, its going to be COOL!</p>
+                          </font>
+                          <!-- Buttons are here for event -->
+                          <p>
+
+                            <a href="#" class="btn btn-primary" role="button">Going</a> 
+                            <a href="#" class="btn btn-default" role="button">More...</a>
+
+                          </p>
+                        </div>
+                      </div>
+                      <!-- END: 1 thumbnail -->  </div>
+                      <div class="col-lg-4">  <!-- START: 1 thumbnail -->    
+                        <div class="thumbnail">
+
+                          <!--this is the div for the event picture!!!!! -->
+                          <div class="picture">
+                            <img src="Wedding-couple.jpg" alt="..." height="200" width="300">
+                          </div>
+                          <!-- this is the body of the event -->
+                          <div class="caption">
+                            <h3>Atul's Wedding</h3>
+                            <font size = "2">
+                              <p> 
+                                Date: <span> 4/25/13 </span>
+                                <br>
+                                Time: <span> 5pm - 2am </span>
+                                <br>
+                                Where: <span> Mary Gates Hall </span>
+                              </p>
+                              <p>Atul is getting married, its going to be COOL!</p>
+                            </font>
+                            <!-- Buttons are here for event -->
+                            <p>
+
+                              <a href="#" class="btn btn-primary" role="button">Going</a> 
+                              <a href="#" class="btn btn-default" role="button">More...</a>
+
+                            </p>
+                          </div>
+                        </div>
+                        <!-- END: 1 thumbnail -->  </div>
+                        <div class="col-lg-4">  <!-- START: 1 thumbnail -->    
+                        <div class="thumbnail">
+
+                          <!--this is the div for the event picture!!!!! -->
+                          <div class="picture">
+                            <img src="Wedding-couple.jpg" alt="..." height="200" width="300">
+                          </div>
+                          <!-- this is the body of the event -->
+                          <div class="caption">
+                            <h3>Atul's Wedding</h3>
+                            <font size = "2">
+                              <p> 
+                                Date: <span> 4/25/13 </span>
+                                <br>
+                                Time: <span> 5pm - 2am </span>
+                                <br>
+                                Where: <span> Mary Gates Hall </span>
+                              </p>
+                              <p>Atul is getting married, its going to be COOL!</p>
+                            </font>
+                            <!-- Buttons are here for event -->
+                            <p>
+
+                              <a href="#" class="btn btn-primary" role="button">Going</a> 
+                              <a href="#" class="btn btn-default" role="button">More...</a>
+
+                            </p>
+                          </div>
+                        </div>
+                        <!-- END: 1 thumbnail -->  </div>
+<div class="col-lg-4">  <!-- START: 1 thumbnail -->    
+                        <div class="thumbnail">
+
+                          <!--this is the div for the event picture!!!!! -->
+                          <div class="picture">
+                            <img src="Wedding-couple.jpg" alt="..." height="200" width="300">
+                          </div>
+                          <!-- this is the body of the event -->
+                          <div class="caption">
+                            <h3>Atul's Wedding</h3>
+                            <font size = "2">
+                              <p> 
+                                Date: <span> 4/25/13 </span>
+                                <br>
+                                Time: <span> 5pm - 2am </span>
+                                <br>
+                                Where: <span> Mary Gates Hall </span>
+                              </p>
+                              <p>Atul is getting married, its going to be COOL!</p>
+                            </font>
+                            <!-- Buttons are here for event -->
+                            <p>
+
+                              <a href="#" class="btn btn-primary" role="button">Going</a> 
+                              <a href="#" class="btn btn-default" role="button">More...</a>
+
+                            </p>
+                          </div>
+                        </div>
+                        <!-- END: 1 thumbnail -->  </div>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-2">
+                      <!-- right side bar -->
+                      <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="#">Settings</a></li>
+                        <li><a href="#">Manage Event</a></li>
+
+                        <li><h3>Interests:</h3></li>
+
+
+                        <li><div class="well well-sm lessspace"> Sports <span class="glyphicon glyphicon-remove btn pull-right closebtn"></span></div></li>
+
+                        <li><div class="well well-sm lessspace"> Outdoor <span class="glyphicon glyphicon-remove btn pull-right closebtn"></span></div></li>
+
+                        <li><div class="well well-sm lessspace"> Learning <span class="glyphicon glyphicon-remove btn pull-right closebtn"></span></div></li>
+
+                        <li><div class="well well-sm lessspace"> Gaming <span class="glyphicon glyphicon-remove btn pull-right closebtn"></span></div></li>
+                        <li>
+                          <ul class="nav nav-pills">
+                            <li class="dropdown">
+                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">   Add more interests:<b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Three</a></li>
+                                <li><a href="#">Four</a></li>
+                                <li><a href="#">Four</a></li>
+                                <li><a href="#">Four</a></li>
+                                <li><a href="#">Four</a></li>
+
+                              </ul>
+                            </li>
+                          </ul></li>
+                          <li><h3>Subscriptions:</h3></li>
+
+
+
+                          <li><ul class="list-unstyled" id="sub">
+                            <li><button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button></li>
+                            <br>
+                            <li><button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button></li>
+                            <br>
+                            <li><button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button></li>
+                            <br>
+                          </ul></li>
+                        </ul>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div id="footer">
+                  <div class="container">
+                    <p class="text-muted credit">Event Hub</p>
+                  </div>
+                </div>
 
 
     <!-- Bootstrap core JavaScript
@@ -234,6 +299,6 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/docs.js"></script>
-  
 
-</body></html>
+
+  </body></html>
